@@ -14,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
+using System.IO;
 
 namespace _20241016
 {
@@ -29,7 +31,27 @@ namespace _20241016
         public MainWindow()
         {
             InitializeComponent();
+            AddNewDrink(drinks);
             DisplayDrinkMenu(drinks);
+        }
+        private void AddNewDrink(Dictionary<string,int> drinks)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "選擇飲料品項檔案";
+            openFileDialog.Filter = "CSV文件|*.csv|文字檔案|*.txt|所有文件|*.*";
+               
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string fileName = openFileDialog.FileName;
+                string[] lines = File.ReadAllLines(fileName);
+                foreach(var line in lines)
+                {
+                    string[] tokens = line.Split(',');
+                    string drinkName = tokens[0];
+                    int price = Convert.ToInt32(tokens[1]);
+                    drinks.Add(drinkName, price);
+                }
+            }
         }
         private void DisplayDrinkMenu(Dictionary<string, int> drinks)
         {
