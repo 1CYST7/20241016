@@ -34,17 +34,18 @@ namespace _20241016
             AddNewDrink(drinks);
             DisplayDrinkMenu(drinks);
         }
-        private void AddNewDrink(Dictionary<string,int> drinks)
+        private void AddNewDrink(Dictionary<string, int> drinks)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Title = "選擇飲料品項檔案";
             openFileDialog.Filter = "CSV文件|*.csv|文字檔案|*.txt|所有文件|*.*";
-               
+
             if (openFileDialog.ShowDialog() == true)
             {
                 string fileName = openFileDialog.FileName;
                 string[] lines = File.ReadAllLines(fileName);
-                foreach(var line in lines)
+
+                foreach (var line in lines)
                 {
                     string[] tokens = line.Split(',');
                     string drinkName = tokens[0];
@@ -55,6 +56,7 @@ namespace _20241016
         }
         private void DisplayDrinkMenu(Dictionary<string, int> drinks)
         {
+            //stackpanel_DrinkMenu.Children.Clear();
             stackpanel_DrinkMenu.Height = 42 * drinks.Count;
             foreach (var drink in drinks)
             {
@@ -65,6 +67,7 @@ namespace _20241016
                     Background = Brushes.LightBlue,
                     Height = 35,
                 };
+
                 var cb = new CheckBox
                 {
                     Content = drink.Key,
@@ -76,6 +79,7 @@ namespace _20241016
                     Margin = new Thickness(5),
                     VerticalContentAlignment = VerticalAlignment.Center,
                 };
+
                 var lb_price = new Label
                 {
                     Content = $"{drink.Value}元",
@@ -86,6 +90,7 @@ namespace _20241016
                     Width = 60,
                     VerticalContentAlignment = VerticalAlignment.Center,
                 };
+
                 var sl = new Slider
                 {
                     Width = 150,
@@ -96,6 +101,7 @@ namespace _20241016
                     VerticalAlignment = VerticalAlignment.Center,
                     IsSnapToTickEnabled = true,
                 };
+
                 var lb_amount = new Label
                 {
                     Content = "0",
@@ -106,6 +112,7 @@ namespace _20241016
                     VerticalContentAlignment = VerticalAlignment.Center,
                     Width = 50,
                 };
+
                 Binding myBinding = new Binding("Value");
                 myBinding.Source = sl;
                 lb_amount.SetBinding(ContentProperty, myBinding);
@@ -117,6 +124,7 @@ namespace _20241016
 
                 stackpanel_DrinkMenu.Children.Add(sp);
             }
+
         }
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
@@ -141,11 +149,15 @@ namespace _20241016
 
                 if (cb.IsChecked == true && amount > 0) orders.Add(drinkName, amount);
             }
+            // 顯示訂購內容
             string msg = "";
             string discount_msg = "";
             int total = 0;
 
-            msg += $"此次訂購為{takeout}，訂購內容如下：\n";
+            DateTime dateTime = DateTime.Now;
+            msg += $"訂購時間：{dateTime.ToString("yyyy/MM/dd HH:mm:ss")}，此次訂購為{takeout}，訂購內容如下：\n";
+
+
             int num = 1;
             foreach (var order in orders)
             {
@@ -174,6 +186,27 @@ namespace _20241016
             msg += $"\n{discount_msg}，原價為{total}元，售價為 {sellPrice}元。";
 
             ResultTextBlock.Text = msg;
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "儲存訂購內容";
+            saveFileDialog.Filter = "文字檔案|*.txt|所有文件|*.*";
+
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                string fileName = saveFileDialog.FileName;
+                try
+                {
+                    using (StreamWriter sw = new StreamWriter(fileName))
+                    {
+                        sw.Write(msg);
+                    }
+                    MessageBox.Show("訂單已成功儲存。");
+                }
+                catch (IOException ex)
+                {
+                    MessageBox.Show($"儲存檔案時發生錯誤: {ex.Message}");
+                }
+            }
         }
     }
 }
