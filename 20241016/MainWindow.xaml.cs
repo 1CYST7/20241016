@@ -23,15 +23,7 @@ namespace _20241016
     public partial class MainWindow : Window
     {
 
-        Dictionary<string, int> drinks = new Dictionary<string, int>
-        {
-            { "紅茶大杯", 60 },
-            { "紅茶小杯", 40 },
-            { "綠茶大杯", 50 },
-            { "綠茶小杯", 30 },
-            { "可樂大杯", 50 },
-            { "可樂小杯", 30 },
-        };
+        Dictionary<string, int> drinks = new Dictionary<string, int>();
         Dictionary<string, int> orders = new Dictionary<string, int>();
         string takeout = "";
         public MainWindow()
