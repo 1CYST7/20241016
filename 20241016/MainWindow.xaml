@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <!--1.設定StackPanel背景顏色和邊框距離大小 2.設定高度寬度和在版面中的排版-->
+        <!--1.設定StackPanel的名字為stackpanel_DrinkMenu和背景顏色和邊框距離大小 2.設定高度寬度和在版面中的排版-->
         <StackPanel x:Name="stackpanel_DrinkMenu" Margin="20,65,0,0" Background="#FFF9EEEE" 
                     VerticalAlignment="Top" HorizontalAlignment="Left" Height="200"  Width="455" />
         <!--1.設定Button的名字為orderbutton和呈現文字和邊框距離大小 2.設定高度寬度和在版面中的排版 3.字體設置 4.設定當按下時的事件-->
