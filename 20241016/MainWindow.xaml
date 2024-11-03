@@ -16,13 +16,30 @@
             <RowDefinition Height="374*" MinHeight="300"/>
             <RowDefinition Height="231*"/>
         </Grid.RowDefinitions>
+		<!--1.設定StackPanel的名字背景顏色和邊框距離大小和StackPanel 會被放置在 Grid 的第二行(第一行為0)-->
         <StackPanel x:Name="stackpanel_DrinkMenu" Margin="10,10,10,10" Background="#FFF9EEEE" Grid.Row="1" />
-        <Button x:Name="OrderButton" Content="確定訂購" Margin="10,30,10,0" FontSize="18" FontWeight="Bold" Click="OrderButton_Click" Grid.Column="1" Grid.Row="1" Height="57" VerticalAlignment="Top"/>
-        <TextBlock x:Name="ResultTextBlock" Margin="10,10,10,10" TextWrapping="Wrap" Background="#FFF7F3D4" Padding="5,5,5,5" FontSize="16" Grid.Row="2" Grid.ColumnSpan="2"/>
+		<!--1.設定Button的名字為orderbutton和呈現文字和邊框距離大小和Button會被放置在 Grid 的第二行第二列(第一行為0) 2.設定高度和在版面中的排版 3.字體設置 4.設定當按下時的事件-->
+        <Button x:Name="OrderButton" Content="確定訂購" Margin="10,30,10,0" Grid.Column="1" Grid.Row="1"
+				VerticalAlignment="Top" Height="57" 
+				FontSize="18" FontWeight="Bold" 
+				Click="OrderButton_Click"  />
+		<!--1.設定textblock的名字為resulttextbox和背景顏色和內外邊框距離大小和textblock會被放置在 Grid 的第三行和橫跨兩列(第一行為0) 2.設定字體的大小以及呈現方式-->
+        <TextBlock x:Name="ResultTextBlock" Margin="10,10,10,10" Background="#FFF7F3D4" Padding="5,5,5,5" Grid.Row="2" Grid.ColumnSpan="2"
+				   TextWrapping="Wrap"  FontSize="16" />
+		<!--1.設定GroupBox的顯示標題為內用/外帶和外邊框距離大小和背景顏色和GroupBox會被放置在 Grid 的第一行和橫跨兩列(第一行為0)  -->
         <GroupBox Header="內用/外帶" Margin="10,10,10,10" Background="#FFB4F4F3" Grid.ColumnSpan="2">
-            <StackPanel Orientation="Horizontal" Height="30">
-                <RadioButton Content="內用" FontSize="16" FontWeight="Bold" Height="25" Width="80" Margin="10,0,0,0" VerticalAlignment="Center" VerticalContentAlignment="Center" Checked="RadioButton_Checked"/>
-                <RadioButton Content="外帶" FontSize="16" FontWeight="Bold" Height="25" Width="80" Margin="10,0,0,0" VerticalAlignment="Center" VerticalContentAlignment="Center" Checked="RadioButton_Checked"/>
+			<!--1.設定StackPanel的方向性和高度 -->
+			<StackPanel 
+				Orientation="Horizontal" Height="30">
+				<!--兩個RadioButton都是1.設定RadioButton的顯示文字和外邊框距離大小 2.設定高度寬度和在版面中的排版 3.設定字體的大小以及呈現方式 4.設定當按下時的事件-->
+                <RadioButton Content="內用" Margin="10,0,0,0"
+							 VerticalAlignment="Center" Height="25" Width="80"  
+							 FontSize="16" FontWeight="Bold" VerticalContentAlignment="Center" 
+							 Checked="RadioButton_Checked"/>
+                <RadioButton Content="外帶" Margin="10,0,0,0"
+							 VerticalAlignment="Center" Height="25" Width="80"  
+							 FontSize="16" FontWeight="Bold"  VerticalContentAlignment="Center" 
+							 Checked="RadioButton_Checked"/>
             </StackPanel>
         </GroupBox>
     </Grid>
