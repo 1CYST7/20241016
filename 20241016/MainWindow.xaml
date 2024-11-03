@@ -15,17 +15,17 @@
                 VerticalAlignment="Top" HorizontalAlignment="Right" Width="100" Height="60" 
                 FontSize="18" FontWeight="Bold"  
                 Click="OrderButton_Click"/>
-        <!--1.設定textblock的名字為resulttextbox和背景顏色和邊框距離大小 2.設定高度寬度和在版面中的排版 3.設定字體的大小以及呈現方式-->
+        <!--1.設定textblock的名字為resulttextbox和背景顏色和邊框距離大小 2.設定高度和在版面中的排版 3.設定字體的大小以及呈現方式-->
         <TextBlock x:Name="ResultTextBlock" Margin="20,0,30,20" Background="#FFF7F3D4" Padding="5,5,5,5"
                    VerticalAlignment="Bottom" Height="220" 
                    TextWrapping="Wrap"  FontSize="16"/>
-        <!--1.設定groupbox的文字和背景顏色和邊框距離大小 2.設定高度寬度和在版面中的排版 -->
+        <!--1.設定groupbox的顯示標題和背景顏色和邊框距離大小 2.設定高度寬度和在版面中的排版 -->
         <GroupBox Header="內用/外帶" Margin="20,0,0,0" Background="#FFB4F4F3" 
                   VerticalAlignment="Top" HorizontalAlignment="Left" Height="52"  Width="750">
             <!--1.設定StackPanel的邊距 2.設定方向性和高度 -->
             <StackPanel  Margin="0,0,-2,0" 
                          Orientation="Horizontal" Height="30">
-                <!--兩個RadioButton都是1.設定RadioButton的文字和邊框距離大小 2.設定高度寬度和在版面中的排版 3.設定字體的大小以及呈現方式 4.設定當按下時的事件-->
+                <!--兩個RadioButton都是1.設定RadioButton的顯示文字和外邊框距離大小 2.設定高度寬度和在版面中的排版 3.設定字體的大小以及呈現方式 4.設定當按下時的事件-->
                 <RadioButton Content="內用" Margin="10,0,0,0" 
                              VerticalAlignment="Center" Height="25" Width="80" 
                              VerticalContentAlignment="Center" FontSize="16" FontWeight="Bold"     
