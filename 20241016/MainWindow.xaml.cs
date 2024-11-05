@@ -25,8 +25,11 @@ namespace _20241016
     public partial class MainWindow : Window
     {
 
-        Dictionary<string, int> drinks = new Dictionary<string, int>(); // 定義飲料名稱與價格的字典
-        Dictionary<string, int> orders = new Dictionary<string, int>(); // 定義訂購飲料名稱與數量的字典
+        // 定義飲料名稱與價格的字典
+        Dictionary<string, int> drinks = new Dictionary<string, int>();
+        // 定義訂購飲料名稱與數量的字典
+        Dictionary<string, int> orders = new Dictionary<string, int>(); 
+                
         string takeout = ""; // 定義是否外帶的字串變數
         public MainWindow()
         {
@@ -65,7 +68,7 @@ namespace _20241016
                 var sp = new StackPanel
                 {
                     Orientation = Orientation.Horizontal,
-                    Margin = new Thickness(3),
+                    Margin = new Thickness(3),//設定外邊距為3
                     Background = Brushes.LightBlue,
                     Height = 35,
                 };
@@ -78,7 +81,7 @@ namespace _20241016
                     FontWeight = FontWeights.Bold,
                     Foreground = Brushes.Blue,
                     Width = 150,
-                    Margin = new Thickness(5),
+                    Margin = new Thickness(5),//設定外邊距為5
                     VerticalContentAlignment = VerticalAlignment.Center,
                 };
                 // 建立顯示飲料價格的Label標籤
@@ -99,7 +102,7 @@ namespace _20241016
                     Minimum = 0,
                     Maximum = 10,
                     Value = 0,
-                    Margin = new Thickness(5),
+                    Margin = new Thickness(5),//設定外邊距為5
                     VerticalAlignment = VerticalAlignment.Center,
                     IsSnapToTickEnabled = true,
                 };
