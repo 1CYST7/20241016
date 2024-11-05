@@ -52,7 +52,7 @@ namespace _20241016
                 var sp = new StackPanel
                 {
                     Orientation = Orientation.Horizontal,
-                    Margin = new Thickness(3),
+                    Margin = new Thickness(3),//外部邊距為 3 個單位
                     Background = Brushes.LightBlue,
                     Height = 35,
                 };
@@ -65,7 +65,7 @@ namespace _20241016
                     FontWeight = FontWeights.Bold,
                     Foreground = Brushes.Blue,
                     Width = 150,
-                    Margin = new Thickness(5),
+                    Margin = new Thickness(5),//外部邊距為 5 個單位
                     VerticalContentAlignment = VerticalAlignment.Center,
                 };
                 // 建立顯示飲料價格的Label標籤
@@ -86,7 +86,7 @@ namespace _20241016
                     Minimum = 0,
                     Maximum = 10,
                     Value = 0,
-                    Margin = new Thickness(5),
+                    Margin = new Thickness(5),//外部邊距為 5 個單位
                     VerticalAlignment = VerticalAlignment.Center,
                     IsSnapToTickEnabled = true,
                 };
@@ -106,6 +106,7 @@ namespace _20241016
                 // 綁定來源設為滑桿
                 myBinding.Source = sl;
                 // 綁定滑桿值到顯示標籤
+                //ContentProperty是用來表示控制項的主要內容
                 lb_amount.SetBinding(ContentProperty, myBinding);
                 // 將勾選框加入 StackPanel
                 sp.Children.Add(cb);
@@ -125,7 +126,7 @@ namespace _20241016
             var rb = sender as RadioButton;
             if (rb.IsChecked == true)
             {
-                //MessageBox.Show(rb.Content.ToString());
+                //當使用者選擇一個 RadioButton 時，將該 RadioButton 的內容（例如 "外帶" 或 "內用"）轉換為字串並儲存在 takeout 變數中
                 takeout = rb.Content.ToString();
             }
         }
