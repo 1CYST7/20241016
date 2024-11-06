@@ -142,7 +142,7 @@ namespace _20241016
             var rb = sender as RadioButton;
             if (rb.IsChecked == true)
             {
-                //MessageBox.Show(rb.Content.ToString());
+                //當使用者選擇一個 RadioButton 時，將該 RadioButton 的內容（例如 "外帶" 或 "內用"）轉換為字串並儲存在 takeout 變數中
                 takeout = rb.Content.ToString();
             }
         }
